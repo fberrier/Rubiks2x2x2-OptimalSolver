@@ -16,7 +16,7 @@ quit()
 # ############################### Method 2 a/b: Start the cubesolving-server# ##########################################
 #----------------------------------------------------------------------------------------------------------------------
 # Method 2a: Start the server from inside a Python script:
-import start_server
+import rubiks.thirdparties.hkociemba.start_server as start_server
 from threading import Thread
 background_thread = Thread(target=start_server.start, args=(8080,))
 background_thread.start()
@@ -45,7 +45,7 @@ background_thread.start()
 # 3. With this little graphical interface.
 # From within a Python script start the interface with
 
-import client_gui
+import rubiks.thirdparties.hkociemba.client_gui as client_gui
 
 # From a terminal start the interface with
 # python client_gui.py

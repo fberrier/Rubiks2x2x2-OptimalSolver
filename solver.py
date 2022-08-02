@@ -1,7 +1,7 @@
 # ###################### The solve function computes all optimal solving maneuvers #####################################
-import rubiks.thirdparties.hkociemba.face
-import rubiks.thirdparties.hkociemba.cubie
-import rubiks.thirdparties.hkociemba.coord
+import rubiks.thirdparties.hkociemba.face as face
+import rubiks.thirdparties.hkociemba.cubie as cubie
+import rubiks.thirdparties.hkociemba.coord as coord
 import rubiks.thirdparties.hkociemba.enums as en
 import rubiks.thirdparties.hkociemba.moves as mv
 import rubiks.thirdparties.hkociemba.pruning as pr
@@ -43,11 +43,11 @@ def solve(cubestring):
     fc = face.FaceCube()
     s = fc.from_string(cubestring) #####################################################################################
     if s is not True:
-        return s  # Error in facelet cube
+        raise ValueError(s)  # Error in facelet cube
     cc = fc.to_cubie_cube()
     s = cc.verify()
     if s != cubie.CUBE_OK:
-        return s  # Error in cubie cube
+        raise ValueError(s)  # Error in cubie cube
 
     solutions = []
     co_cube = coord.CoordCube(cc)
@@ -56,11 +56,11 @@ def solve(cubestring):
     search(co_cube.cornperm, co_cube.corntwist, [], togo)
 
     s = ''
-    for i in range(len(solutions)):  # use  range(min(len(solutions), 1)) if you want to return only a single solution
+    for i in range(min(len(solutions), 1)):  # use  range(min(len(solutions), 1)) if you want to return only a single solution
         ps = ''
         for m in solutions[i]:
             ps += m.name + ' '
-        ps += '(' + str(len(ps)//3) + 'f)\r\n'
+        #ps += '(' + str(len(ps)//3) + 'f)\r\n'
         s += ps
     return s
 ########################################################################################################################

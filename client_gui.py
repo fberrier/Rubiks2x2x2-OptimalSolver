@@ -2,8 +2,8 @@
 
 from tkinter import *
 import socket
-import face
-import cubie
+import rubiks.thirdparties.hkociemba.face as face
+import ubiks.thirdparties.hkociemba.cubie as cubie
 
 # ################################ Edit the following line to use different colors #####################################
 cols = ("yellow", "green", "red", "white", "blue", "orange")

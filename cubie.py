@@ -2,7 +2,7 @@
 
 from rubiks.thirdparties.hkociemba.defs import cornerFacelet, cornerColor, N_CORNERS, N_TWIST
 from rubiks.thirdparties.hkociemba.enums import Color, Corner as Co
-import rubiks.thirdparties.hkociemba.face
+import rubiks.thirdparties.hkociemba.face as face
 from rubiks.thirdparties.hkociemba.misc import rotate_left, rotate_right
 from random import randrange
 
@@ -164,7 +164,6 @@ class CubieCube:
 
     def verify(self):
         """Checks if cubiecube is valid"""
-
         corner_count = [0] * 8
         for i in Co:
             corner_count[self.cp[i]] += 1
