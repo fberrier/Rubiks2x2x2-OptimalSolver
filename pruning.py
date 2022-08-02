@@ -1,9 +1,9 @@
 # ##################### The pruning table cuts the search tree during the search. ######################################
 # ########################## In this case it it gives the exact distance to the solved state. ##########################
 
-import defs
-import enums
-import moves as mv
+import rubiks.thirdparties.hkociemba.defs as defs
+import rubiks.thirdparties.hkociemba.enums as enums
+import rubiks.thirdparties.hkociemba.moves as mv
 from os import path
 import array as ar
 

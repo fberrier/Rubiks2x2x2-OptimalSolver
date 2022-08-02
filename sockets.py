@@ -3,7 +3,7 @@
 import socket
 import sys
 import threading
-import solver
+import rubiks.thirdparties.hkociemba.solver
 import time
 
 
