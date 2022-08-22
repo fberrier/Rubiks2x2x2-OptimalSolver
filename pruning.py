@@ -15,7 +15,7 @@ def create_cornerprun_table():
     fname = "cornerprun"
     global corner_depth
     if not path.isfile(fname):
-        print("creating " + fname + " table...")
+        #print("creating " + fname + " table...")
         corner_depth = ar.array('b', [-1] * (defs.N_CORNERS * defs.N_TWIST))
         corners = 0  # values for solved cube
         twist = 0
@@ -33,15 +33,15 @@ def create_cornerprun_table():
                             if corner_depth[idx1] == -1:  # entry not yet filled
                                 corner_depth[idx1] = depth + 1
                                 done += 1
-                                if done % 50000 == 0:
-                                    print('.', end='', flush=True)
+                                #if done % 50000 == 0:
+                                    #print('.', end='', flush=True)
 
             depth += 1
-        print()
+        #print()
         fh = open(fname, "wb")
         corner_depth.tofile(fh)
     else:
-        print("loading " + fname + " table...")
+        #print("loading " + fname + " table...")
         fh = open(fname, "rb")
         corner_depth = ar.array('b')
         corner_depth.fromfile(fh, defs.N_CORNERS * defs.N_TWIST)
